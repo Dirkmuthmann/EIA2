@@ -3,28 +3,26 @@
 html {
 	background-color: #414141;
 	font-family: Helvetica Neue, Helvetica, Arial, Verdana, sans-serif;
-	background-image: url("img/background-home.jpg");
+	background-image: url("img/background.jpg");
 	color: white;
 }
 
 body {
 	min-width: 300px;
-	margin: 5%;
+	margin: 25%;
 	background: rgba(0, 0, 0, 0.5);
 }
 
-
-
 main>div {
-	border-radius: 5px;
 	height: 350px;
 	width: 350px;
-	margin: 1%;
-	margin-left: 4%;
-	margin-bottom: 12em;
+	margin: 25%;
 	box-shadow: 0.5em 0.5em 0.5em 0em rgba(0, 0, 0, 0.4);
 	color: white;
 	background-color: rgba(0, 0, 0, 0.4);
 	outline: none;
 	
+}
+a {
+	color: white;
 }
