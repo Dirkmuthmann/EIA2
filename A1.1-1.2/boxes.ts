@@ -19,8 +19,7 @@ namespace Boxes {
                 c = "#00ff00";
                 break;
             default:
-                c = "#0000ff";
-                
+                c = "#0000ff";                
                         }
         for (let a: number = 50; a > 0; a -= 20) {
             placeDiv(c, x, y, a, a);
