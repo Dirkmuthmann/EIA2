@@ -1,5 +1,10 @@
-// Musste mir Inspiration bei Melvins Code holen, sonnst hätte ich das nicht geschaft.
-// Ansatz nicht gefunden.
+// Musste mir Inspiration bei Melvins Code holen, sonnst hätte ich dass nicht ansatzweise geschaft.
+
+
+// Debugging:
+// card creation läuft nur einmal druch dann abbruch.
+// fixed, cards werden jetzt untereinander angezeigt. Lösung=css
+
 namespace Memory {
 
     
@@ -41,7 +46,7 @@ namespace Memory {
             this.name = _name;
             this.score = 0;
         }
-
+        // plus count
         scoreUp(): number {
             this.score += 1;
             return this.score;
@@ -77,8 +82,10 @@ namespace Memory {
             return _array;
         }
         // Input Spieleranzahl
-        numberPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben", "nicht mehr als 4 Spieler"), 10);
+        numberPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben, MAX 4 Spieler!: "), 10);
         numberPlayers > 4 ? numberPlayers = 4 : numberPlayers = numberPlayers;
+    
+    
     
         function main(): void {
         // Input Kartenpaar
@@ -113,7 +120,7 @@ namespace Memory {
             let player: Player = new Player("Spieler " + (i + 1));
             player.show();
         }
-
     }
+    
     document.addEventListener("DOMContentLoaded", main);
 }

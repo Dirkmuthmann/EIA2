@@ -1,5 +1,7 @@
-// Musste mir Inspiration bei Melvins Code holen, sonnst h�tte ich das nicht geschaft.
-// Ansatz nicht gefunden.
+// Musste mir Inspiration bei Melvins Code holen, sonnst h�tte ich dass nicht ansatzweise geschaft.
+// Debugging:
+// card creation l�uft nur einmal druch dann abbruch.
+// fixed, cards werden jetzt untereinander angezeigt. L�sung=css
 var Memory;
 (function (Memory) {
     let deck = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
@@ -28,6 +30,7 @@ var Memory;
             this.name = _name;
             this.score = 0;
         }
+        // plus count
         scoreUp() {
             this.score += 1;
             return this.score;
@@ -62,7 +65,7 @@ var Memory;
         return _array;
     }
     // Input Spieleranzahl
-    numberPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben", "nicht mehr als 4 Spieler"), 10);
+    numberPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben, MAX 4 Spieler!: "), 10);
     numberPlayers > 4 ? numberPlayers = 4 : numberPlayers = numberPlayers;
     function main() {
         // Input Kartenpaar
