@@ -1,0 +1,45 @@
+body {
+  font-size: 17px;
+  background: gray;
+}
+
+#score {
+  width: 20%;
+  background: black;
+  padding: 20px;
+  box-shadow: 0px rgba(0,0,0,0.5);
+}
+
+#game-background {
+  height: auto;
+  width: 70%;
+  padding: 20px;
+}
+
+#card-div {
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+.card {
+  height: 200px;
+  width: 150px;
+  border-radius: 3px;
+  margin: 0px 20px 20px 0px;
+  text-align: center;
+  line-height: 150px;
+  position: relative;
+  background: white;
+  transition: all 1s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  pointer-events: auto;
+}
+.hidden {
+  transform: rotateY(180deg);
+}
+.taken {
+  background: #326145;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  transform: rotateY(180deg);
+}
