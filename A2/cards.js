@@ -1,7 +1,7 @@
 // Musste mir Inspiration bei Melvins Code holen, sonnst h�tte ich dass nicht ansatzweise geschaft.
 // Debugging:
 // card creation l�uft nur einmal druch dann abbruch.
-// fixed, cards werden jetzt untereinander angezeigt. L�sung=css
+// fixed, cards werden jetzt daf�r untereinander angezeigt. L�sung=css
 var Memory;
 (function (Memory) {
     let deck = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
@@ -35,6 +35,7 @@ var Memory;
             this.score += 1;
             return this.score;
         }
+        // player Nr. + score
         show() {
             this.player = document.createElement("div");
             this.player.innerHTML = `
@@ -43,7 +44,7 @@ var Memory;
             gameScore.appendChild(this.player);
         }
     }
-    // random Status
+    // random Status hinzuf�gen
     function randomStatus() {
         let randomStatus = Math.random();
         if (randomStatus <= .5) {
@@ -56,7 +57,7 @@ var Memory;
             return "visible";
         }
     }
-    // Shuffle Array: von https://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
+    // Shuffle Array: Hilfe von https://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
     function shuffleArray(_array) {
         for (let i = _array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -73,7 +74,7 @@ var Memory;
         if (numberCardPairs < 5 || numberCardPairs > 10) {
             numberCardPairs = 8;
         }
-        // DOM abh�ngige Variablen initialisieren
+        // DOM Objekt erzeugen sonnst kein Objekt
         gameScore = document.getElementById("score");
         gameBackground = document.getElementById("card-div");
         // Karten erzeugen
@@ -85,11 +86,11 @@ var Memory;
         }
         // Karten mischen
         shuffleArray(cards);
-        // Karten anzeigen
+        // Karten hinzuf�gen und anzeien
         for (let i = 0; i < cards.length; i++) {
             gameBackground.appendChild(cards[i]);
         }
-        // Spieler Anzeige generieren
+        // Spieler Score ini
         for (let i = 0; i < numberPlayers; i++) {
             let player = new Player("Spieler " + (i + 1));
             player.show();

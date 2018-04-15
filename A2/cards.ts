@@ -3,11 +3,11 @@
 
 // Debugging:
 // card creation läuft nur einmal druch dann abbruch.
-// fixed, cards werden jetzt untereinander angezeigt. Lösung=css
+// fixed, cards werden jetzt dafür untereinander angezeigt. Lösung=css
 
 namespace Memory {
 
-    
+
     let deck: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
     let cards: HTMLElement[] = [];
 
@@ -51,7 +51,7 @@ namespace Memory {
             this.score += 1;
             return this.score;
         }
-
+        // player Nr. + score
         show(): void {
             this.player = document.createElement("div");
             this.player.innerHTML = `
@@ -61,7 +61,7 @@ namespace Memory {
         }
     }
 
-    // random Status
+    // random Status hinzufügen
     function randomStatus(): string {
         let randomStatus: number = Math.random();
         if (randomStatus <= .5) {
@@ -73,28 +73,28 @@ namespace Memory {
         }
     }
 
-        // Shuffle Array: von https://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
-        function shuffleArray(_array: any[]): any[] {
-            for (let i: number = _array.length - 1; i > 0; i--) {
-                const j: number = Math.floor(Math.random() * (i + 1));
-                [_array[i], _array[j]] = [_array[j], _array[i]];
-            }
-            return _array;
+    // Shuffle Array: Hilfe von https://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
+    function shuffleArray(_array: any[]): any[] {
+        for (let i: number = _array.length - 1; i > 0; i--) {
+            const j: number = Math.floor(Math.random() * (i + 1));
+            [_array[i], _array[j]] = [_array[j], _array[i]];
         }
-        // Input Spieleranzahl
-        numberPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben, MAX 4 Spieler!: "), 10);
-        numberPlayers > 4 ? numberPlayers = 4 : numberPlayers = numberPlayers;
-    
-    
-    
-        function main(): void {
+        return _array;
+    }
+    // Input Spieleranzahl
+    numberPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben, MAX 4 Spieler!: "), 10);
+    numberPlayers > 4 ? numberPlayers = 4 : numberPlayers = numberPlayers;
+
+
+
+    function main(): void {
         // Input Kartenpaar
         numberCardPairs = parseInt(prompt("Spielfeld größe: 5 - 10 Karten"), 10);
         if (numberCardPairs < 5 || numberCardPairs > 10) {
             numberCardPairs = 8;
         }
 
-        // DOM abhängige Variablen initialisieren
+        // DOM Objekt erzeugen sonnst kein Objekt
         gameScore = document.getElementById("score");
         gameBackground = document.getElementById("card-div");
 
@@ -110,17 +110,17 @@ namespace Memory {
         // Karten mischen
         shuffleArray(cards);
 
-        // Karten anzeigen
+        // Karten hinzufügen und anzeien
         for (let i: number = 0; i < cards.length; i++) {
             gameBackground.appendChild(cards[i]);
         }
 
-        // Spieler Anzeige generieren
+        // Spieler Score ini
         for (let i: number = 0; i < numberPlayers; i++) {
             let player: Player = new Player("Spieler " + (i + 1));
             player.show();
         }
     }
-    
+
     document.addEventListener("DOMContentLoaded", main);
 }

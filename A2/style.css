@@ -1,7 +1,8 @@
 body {
+	font-size: 20px;
 	background: gray;
 }
-
+/* score vllt unten oder rechts anzeigen */
 #score {
 	width: 20%;
 	background: white;
@@ -9,8 +10,9 @@ body {
 	box-shadow: 0px rgba(0, 0, 0, 0.5);
 	position: sticky;
 }
-#h1{
-color:black;	
+
+#h1 {
+	color: black;
 }
 
 #game-background {
@@ -20,14 +22,9 @@ color:black;
 	padding: 20px 20px;
 }
 
-#card-div {
-	color: #c0c0c0; position : relative;
-	height: auto;
-	width: 100%;
-	position: relative;
-}
-
+/* float left vergessen gehabt */
 .card {
+	float: left;
 	height: 200px;
 	width: 150px;
 	border-radius: 3px;
@@ -35,11 +32,11 @@ color:black;
 	text-align: center;
 	line-height: 150px;
 	position: relative;
-	background: white;
+	background: black;
 }
 /* Karte umdrehen oder simple background=font color */
 .hidden {
-
+	
 }
 /* alles leicht transparent vllt. simple background=green */
 .taken {
